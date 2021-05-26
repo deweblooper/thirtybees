@@ -503,6 +503,8 @@ $kernel->loadFile(__DIR__.'/../../classes/Zone.php');
 $kernel->loadFile(__DIR__.'/override/classes/Zone.php');
 $kernel->loadFile(__DIR__.'/../../classes/override/OverridePatch.php');
 $kernel->loadFile(__DIR__.'/override/classes/override/OverridePatch.php');
+$kernel->loadFile(__DIR__.'/../../classes/override/OverrideManager.php');
+$kernel->loadFile(__DIR__.'/override/classes/override/OverrideManager.php');
 
 $kernel->loadFile(__DIR__.'/../../controllers/admin/AdminAccessController.php');
 $kernel->loadFile(__DIR__.'/override/controllers/admin/AdminAccessController.php');

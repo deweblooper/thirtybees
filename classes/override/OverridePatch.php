@@ -5,18 +5,18 @@ class OverridePatchCore
     /**
      * Add all methods in a module override to the override class
      *
-     * @param $moduleName
-     * @param $moduleVersion
-     * @param string $classname
+     * @param $moduleName string
+     * @param $moduleVersion string
+     * @param $classname string
+     * @param $filename  string
      *
      * @return bool
      * @throws PrestaShopException
      * @throws ReflectionException
-     * @throws Exception
      * @since   1.0.0
      * @version 1.0.0 Initial version
      */
-    public function installOverride($moduleName, $moduleVersion, $classname)
+    public function installModuleOverride($moduleName, $moduleVersion, $classname, $filename)
     {
         $origPath = $path = PrestaShopAutoload::getInstance()->getClassPath($classname.'Core');
         if (!$path) {

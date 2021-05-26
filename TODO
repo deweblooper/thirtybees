@@ -1,0 +1,1 @@
+- new method Db::results() that returns [], and throws on error

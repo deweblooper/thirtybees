@@ -1828,7 +1828,8 @@ abstract class ModuleCore
     public function addOverride($classname)
     {
         $patch = new OverridePatch();
-        return $patch->installOverride($this->name, $this->version, $classname);
+        $filepath = $pathOverride
+        return $patch->installModuleOverride($this->name, $this->version, $classname);
     }
 
     /**
