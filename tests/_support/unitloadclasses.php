@@ -287,6 +287,8 @@ $kernel->loadFile(__DIR__.'/../../classes/module/ModuleGrid.php');
 $kernel->loadFile(__DIR__.'/override/classes/module/ModuleGrid.php');
 $kernel->loadFile(__DIR__.'/../../classes/module/ModuleStats.php');
 $kernel->loadFile(__DIR__.'/override/classes/module/ModuleStats.php');
+$kernel->loadFile(__DIR__.'/../../classes/module/PackageExtractor.php');
+$kernel->loadFile(__DIR__.'/override/classes/module/PackageExtractor.php');
 $kernel->loadFile(__DIR__.'/../../classes/Notification.php');
 $kernel->loadFile(__DIR__.'/override/classes/Notification.php');
 $kernel->loadFile(__DIR__.'/../../classes/order/OrderCarrier.php');
