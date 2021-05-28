@@ -38,33 +38,33 @@ class PackageExtractorCore
     /**
      * @var string target directory, into which package will be installed
      */
-    private $targetDirectory;
+    protected $targetDirectory;
 
     /**
      * @var string temp directory, used to temporary store unzipped downloaded content
      */
-    private $tempDirectory;
+    protected $tempDirectory;
 
     /**
      * @var int permissions for newly created directories
      */
-    private $directoryPerms = 0755;
+    protected $directoryPerms = 0755;
 
     /**
      * @var int permissions for newly created files
      */
-    private $filePerms = 0644;
+    protected $filePerms = 0644;
 
     /**
      * @var string extract mode - one of MERGE | REPLACE
      */
-    private $mode = self::MODE_MERGE;
+    protected $mode = self::MODE_MERGE;
 
     /**
      * @var callable validator for package files. It receives list of package files as an argument, and
      *      returns list of errors if validation fails, or null/empty list on validation success
      */
-    private $packageValidator;
+    protected $packageValidator;
 
     /**
      * @var array[] array containing all error messages generated during package extraction
@@ -124,7 +124,7 @@ class PackageExtractorCore
 
             return $this->extractLocalPackage($source, $name);
         } catch (Exception $e) {
-            return $this->error("Fatal error: " . $e->getMessage(), $e->getTraceAsString());
+            return $this->error("Fatal error: " . $e->getMessage(), $e);
         } finally {
             if ($tempFile && @is_file($tempFile)) {
                 @unlink($tempFile);
@@ -395,7 +395,7 @@ class PackageExtractorCore
         }
 
         if (! @chmod($target, $this->filePerms)) {
-            $this->warning(sprintf(Tools::displayError('Failed to change file permissions for file %s', $target)));
+            $this->warning(sprintf(Tools::displayError('Failed to change file permissions for file %s'), $target));
         }
 
         return true;
@@ -607,14 +607,14 @@ class PackageExtractorCore
      * Helper method to save error message
      *
      * @param string $message
-     * @param string $stacktrace
-     * @return bool
+     * @param Exception $exception
+     * @return false
      */
-    protected function error($message, $stacktrace = null)
+    protected function error($message, $exception = null)
     {
         $entry = [ 'message' => $message, ];
-        if ($stacktrace) {
-            $entry['stacktrace'] = $stacktrace;
+        if ($exception) {
+            $entry['exception'] = $exception;
         }
         $this->errors[] = $entry;
         return false;
