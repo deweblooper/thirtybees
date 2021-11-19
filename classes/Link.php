@@ -295,19 +295,23 @@ class LinkCore
      * Use controller name to create a link
      *
      * @param string $controller
-     * @param bool   $withToken include or not the token in the url
+     * @param bool $withToken include or not the token in the url
+     * @param array $parameters
      *
      * @return string url
      *
+     * @throws PrestaShopException
      * @since   1.0.0
      * @version 1.0.0 Initial version
-     * @throws PrestaShopException
      */
-    public function getAdminLink($controller, $withToken = true)
+    public function getAdminLink($controller, $withToken = true, $parameters=[])
     {
         $idLang = Context::getContext()->language->id;
 
-        $params = $withToken ? ['token' => Tools::getAdminTokenLite($controller)] : [];
+        $params = $parameters;
+        if ($withToken) {
+            $params['token'] = Tools::getAdminTokenLite($controller);
+        }
 
         return Dispatcher::getInstance()->createUrl($controller, $idLang, $params, false);
     }
