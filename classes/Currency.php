@@ -790,8 +790,7 @@ class CurrencyCore extends ObjectModel
     /**
      * Returns currency formatter associated with this currency, if exists
      *
-     * @returns callable | null
-     *
+     * @return callable | null
      * @throws PrestaShopException
      */
     public function getFormatter()

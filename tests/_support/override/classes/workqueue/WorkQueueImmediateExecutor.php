@@ -20,10 +20,10 @@
 namespace Thirtybees\Core\WorkQueue;
 
 /**
- * Class WorkQueueTask
+ * Class WorkQueueFuture
  *
- * @since 1.3.0
+ * @since 1.4.0
  */
-class WorkQueueTask extends WorkQueueTaskCore
+class WorkQueueImmediateExecutor extends WorkQueueImmediateExecutorCore
 {
 }

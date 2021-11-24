@@ -29,6 +29,8 @@
  *  PrestaShop is an internationally registered trademark & property of PrestaShop SA
  */
 
+use Thirtybees\Core\DependencyInjection\ServiceLocator;
+
 /**
  * Class DispatcherCore
  *
@@ -839,7 +841,7 @@ class DispatcherCore
         // Instantiate controller
         try {
             // Loading controller
-            $controller = Controller::getController($controllerClass);
+            $controller = ServiceLocator::getInstance()->getByServiceName($controllerClass);
 
             // Execute hook dispatcher
             if (isset($paramsHookActionDispatcher)) {

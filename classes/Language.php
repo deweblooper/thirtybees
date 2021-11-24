@@ -116,7 +116,7 @@ class LanguageCore extends ObjectModel
      * @param bool     $active Select only active languages
      * @param int|bool $idShop Shop ID
      *
-     * @return array
+     * @return int[]
      *
      * @since   1.0.0
      * @version 1.0.0 Initial version
@@ -152,7 +152,7 @@ class LanguageCore extends ObjectModel
                 continue;
             }
 
-            $languages[] = $idsOnly ? $language['id_lang'] : $language;
+            $languages[] = $idsOnly ? (int)$language['id_lang'] : $language;
         }
 
         return $languages;

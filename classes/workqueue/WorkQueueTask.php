@@ -186,7 +186,7 @@ class WorkQueueTaskCore extends ObjectModel
      * WorkQueueTaskCore constructor.
      *
      * @param int | null $id
-     * @throws PrestaShopDatabaseException
+     *
      * @throws PrestaShopException
      */
     public function __construct($id = null)
@@ -210,7 +210,7 @@ class WorkQueueTaskCore extends ObjectModel
      *
      * This method executes task, handles all exceptions and errors
      *
-     * @returns string
+     * @return string
      */
     public function run()
     {

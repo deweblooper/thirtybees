@@ -110,7 +110,7 @@ class TabCore extends ObjectModel
      *
      * @param string $className
      *
-     * @return int id_tab
+     * @return int|false id_tab
      *
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
@@ -132,12 +132,15 @@ class TabCore extends ObjectModel
 
             if (is_array($result)) {
                 foreach ($result as $row) {
-                    static::$_getIdFromClassName[strtolower($row['class_name'])] = $row['id_tab'];
+                    static::$_getIdFromClassName[strtolower($row['class_name'])] = (int)$row['id_tab'];
                 }
             }
         }
 
-        return (isset(static::$_getIdFromClassName[$className]) ? (int) static::$_getIdFromClassName[$className] : false);
+        return (isset(static::$_getIdFromClassName[$className]) ?
+            (int) static::$_getIdFromClassName[$className]
+            : false
+        );
     }
 
     /**

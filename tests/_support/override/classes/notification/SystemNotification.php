@@ -17,13 +17,13 @@
  * @license   Open Software License (OSL 3.0)
  */
 
-namespace Thirtybees\Core\WorkQueue;
+namespace Thirtybees\Core\Notification;
 
 /**
- * Class WorkQueueTask
+ * Class SystemNotification
  *
- * @since 1.3.0
+ * @since 1.4.0
  */
-class WorkQueueTask extends WorkQueueTaskCore
+class SystemNotification extends SystemNotificationCore
 {
 }

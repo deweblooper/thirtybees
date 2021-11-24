@@ -424,6 +424,9 @@
     <configuration id="PS_SHOW_NEW_MESSAGES" name="PS_SHOW_NEW_MESSAGES">
       <value>1</value>
     </configuration>
+    <configuration id="PS_SHOW_NEW_SYSTEM_NOTIFICATIONS" name="PS_SHOW_NEW_SYSTEM_NOTIFICATIONS">
+      <value>1</value>
+    </configuration>
     <configuration id="PS_FEATURE_FEATURE_ACTIVE" name="PS_FEATURE_FEATURE_ACTIVE">
       <value>1</value>
     </configuration>

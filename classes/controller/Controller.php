@@ -109,7 +109,7 @@ abstract class ControllerCore
     }
 
     /**
-     * returns a new instance of this controller
+     * returns a new instance of specific controller
      *
      * @param string $className
      * @param bool   $auth
@@ -119,9 +119,11 @@ abstract class ControllerCore
      *
      * @since   1.0.0
      * @version 1.0.0 Initial version
+     * @deprecated Use ServiceLocator instead
      */
     public static function getController($className, $auth = false, $ssl = false)
     {
+        Tools::displayAsDeprecated();
         return new $className($auth, $ssl);
     }
 
